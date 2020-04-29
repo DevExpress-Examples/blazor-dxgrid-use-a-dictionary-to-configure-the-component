@@ -58,9 +58,9 @@ This way, your grid accepts three parameters: Data, ChildContent (**for columns*
     public Dictionary<string, object> InputAttributes { get; set; } =
      new Dictionary<string, object>()
      {
-            { "ShowFilterRow", false },
-            { "ShowGroupPanel", true }
-         };
+         { "ShowFilterRow", false },
+         { "ShowGroupPanel", true }
+     };
 
     protected override async Task OnInitializedAsync() {
         base.OnInitialized();
