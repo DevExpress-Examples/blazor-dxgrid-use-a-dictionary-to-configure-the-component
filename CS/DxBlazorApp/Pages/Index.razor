@@ -1,0 +1,33 @@
+﻿@page "/"
+@using DxBlazorApp.Data
+@using DxBlazorApp.Components
+@inject WeatherForecastService ForecastService
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+<MyGrid Data="Forecasts" Settings="InputAttributes">
+    <DxDataGridCommandColumn Width="150px" />
+    <DxDataGridColumn Field="@nameof(WeatherForecast.Date)"></DxDataGridColumn>
+    <DxDataGridColumn Field="@nameof(WeatherForecast.TemperatureC)"></DxDataGridColumn>
+    <DxDataGridColumn Field="@nameof(WeatherForecast.TemperatureF)"></DxDataGridColumn>
+    <DxDataGridComboBoxColumn Data="@WeatherForecastService.Summaries" Field="@nameof(WeatherForecast.Summary)"></DxDataGridComboBoxColumn>
+</MyGrid>
+
+@code {
+    public List<WeatherForecast> Forecasts { get; set; }
+
+    public Dictionary<string, object> InputAttributes { get; set; } =
+     new Dictionary<string, object>()
+     {
+            { "ShowFilterRow", false },
+            { "ShowGroupPanel", true }
+         };
+
+    protected override async Task OnInitializedAsync() {
+        base.OnInitialized();
+        WeatherForecast[] data = await ForecastService.GetForecastAsync(DateTime.Now);
+        Forecasts = data.ToList();
+    }
+
+}
