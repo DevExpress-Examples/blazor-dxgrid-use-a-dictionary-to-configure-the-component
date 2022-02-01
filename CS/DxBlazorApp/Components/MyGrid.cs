@@ -17,7 +17,7 @@ namespace DxBlazorApp.Components {
         public Dictionary<string, object> Settings { get; set; }
 
         protected override void BuildRenderTree(RenderTreeBuilder builder) {
-            builder.OpenComponent<DxDataGrid<T>>(0);
+            builder.OpenComponent<DxGrid>(0);
             builder.AddAttribute(1, "Data", (object)Data);
             builder.AddAttribute(2, "Columns", ChildContent);
             if (Settings != null) {
@@ -32,3 +32,4 @@ namespace DxBlazorApp.Components {
         }
     }
 }
+
