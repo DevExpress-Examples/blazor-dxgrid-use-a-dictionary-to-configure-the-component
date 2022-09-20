@@ -28,6 +28,7 @@ namespace DxBlazorApp
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+            services.AddDevExpressBlazor(_ => _.BootstrapVersion = DevExpress.Blazor.BootstrapVersion.v5);
             services.AddSingleton<WeatherForecastService>();
         }
 
