@@ -5,10 +5,10 @@
 
 <MyGrid Data="Forecasts" Settings="InputAttributes">
     <DxGridCommandColumn Width="150px" />
-    <DxGridDataColumn FieldName="@nameof(WeatherForecast.Date)"></DxGridDataColumn>
-    <DxGridDataColumn FieldName="@nameof(WeatherForecast.TemperatureC)"></DxGridDataColumn>
-    <DxGridDataColumn FieldName="@nameof(WeatherForecast.TemperatureF)"></DxGridDataColumn>
-    <DxGridDataColumn FieldName="@nameof(WeatherForecast.Summary)"></DxGridDataColumn>
+    <DxGridDataColumn FieldName="@nameof(WeatherForecast.Date)" />
+    <DxGridDataColumn FieldName="@nameof(WeatherForecast.TemperatureC)" />
+    <DxGridDataColumn FieldName="@nameof(WeatherForecast.TemperatureF)" />
+    <DxGridDataColumn FieldName="@nameof(WeatherForecast.Summary)" />
 </MyGrid>
 
 @code {
@@ -16,6 +16,7 @@
 
     public Dictionary<string, object> InputAttributes { get; set; } =
         new Dictionary<string, object>() {
+            { "EditMode", GridEditMode.EditRow},
             { "PageSize", 5 },
             { "ShowFilterRow", false },
             { "PagerVisible" , false },
