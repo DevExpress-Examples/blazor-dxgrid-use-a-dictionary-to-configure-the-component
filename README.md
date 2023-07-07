@@ -4,13 +4,13 @@
 <!-- default badges end -->
 # Grid for Blazor - How to use a dictionary to configure the component state
 
-This example demonstrates how you can use a dictionary to configure the [Blazor Grid](https://docs.devexpress.com/Blazor/403143/components/grid) component. This approach allows you to configure multiple components based on one set of settings.
+This example demonstrates how you can use a dictionary to configure the [Blazor Grid](https://docs.devexpress.com/Blazor/403143/components/grid) component. This technique allows you to configure multiple components based on one options set.
 
 ![Use a Dictionary to Configure the Component State](/image.png)
 
 ## Overview
 
-Create a descendant of the [ComponentBase](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase?view=aspnetcore-3.1) class that accepts data source, grid columns, and grid settings stored in a dictionary. In the class, configure the Grid component at runtime as follows:
+Create a [ComponentBase](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase?view=aspnetcore-3.1) class descendant that accepts data source, grid columns, and grid settings stored in a dictionary. In the created class, configure the Grid component at runtime as follows:
 
 ```cs
 public class MyGrid<T> : ComponentBase
