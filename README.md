@@ -10,7 +10,7 @@ This example demonstrates how you can use a dictionary to configure the [Blazor 
 
 ## Overview
 
-Create a [ComponentBase](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase?view=aspnetcore-3.1) class descendant that accepts data source, grid columns, and grid settings stored in a dictionary. In the created class, configure the Grid component at runtime as follows:
+Create a [ComponentBase](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase?view=aspnetcore-3.1) class descendant that accepts a data source, grid columns, and grid settings stored in a dictionary. In the created class, configure the Grid component at runtime as follows:
 
 ```cs
 public class MyGrid<T> : ComponentBase
@@ -39,7 +39,7 @@ public class MyGrid<T> : ComponentBase
 }
 ```
 
-Create a dictionary that stores setting names and values. Assign the dictionary to the corresponding component parameter to create and configure the Grid:
+Create a dictionary that stores setting names and values. Assign this dictionary to the corresponding component parameter to create and configure the Grid:
 
 ```razor
 <MyGrid Data="Forecasts" Settings="InputAttributes" >
