@@ -73,7 +73,7 @@ Create a dictionary that stores setting names and values. Assign this dictionary
 ## Files to Review
 
 - [MyGrid](./CS/DxBlazorApp/Components/MyGrid.cs)
-- [Index.razor](./CS/Pages/Index.razor)
+- [Index.razor](./CS/DxBlazorApp/Pages/Index.razor)
 
 ## Documentation
 
