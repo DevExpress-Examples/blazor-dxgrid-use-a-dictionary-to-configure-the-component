@@ -57,11 +57,11 @@ Create a dictionary that stores setting names and values. Assign this dictionary
     public Dictionary<string, object> InputAttributes { get; set; } =
         new Dictionary<string, object>() {
             { "EditMode", GridEditMode.EditRow},
-			{ "PageSize", 5 },
-			{ "ShowFilterRow", false },
-			{ "PagerVisible" , false },
-			{ "ShowGroupPanel", true }
-		};
+            { "PageSize", 5 },
+            { "ShowFilterRow", false },
+            { "PagerVisible" , false },
+            { "ShowGroupPanel", true }
+	};
     protected override async Task OnInitializedAsync() {
         base.OnInitialized();
         WeatherForecast[] data = await ForecastService.GetForecastAsync(DateTime.Now);
