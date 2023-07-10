@@ -3,22 +3,15 @@
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/T907025)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
-# Blazor - How to reuse a component and configure its state via a dictionary
+# Grid for Blazor - How to use a dictionary to configure the component state
 
-In your application you have multiple components. For instance, let it be Grid. Some of the grids have one set of settings-other grids - other settings:
+This example demonstrates how you can use a dictionary to configure the [Blazor Grid](https://docs.devexpress.com/Blazor/403143/components/grid) component. This technique allows you to configure multiple components based on one options set.
 
-```razor
-Group 1
-<DxGrid PageSize="5" ShowFilterRow="false" PagerVisible="false" ShowGroupPanel="true" ...>
-<DxGrid PageSize="5" ShowFilterRow="false" PagerVisible="false" ShowGroupPanel="true" ...>
-<DxGrid PageSize="5" ShowFilterRow="false" PagerVisible="false" ShowGroupPanel="true" ...>
-...
-Group 2
-<DxGrid PageSize="15" ShowFilterRow="false" ShowGroupPanel="false" SelectionMode="GridSelectionMode.Single" ...>
-...
-```
+![Use a Dictionary to Configure the Component State](/image.png)
 
-To prevent writing a such routine N times for every grid, you may want to have a minimum set of dictionaries with a grid's settings. To support this scenario, create a [ComponentBase](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase?view=aspnetcore-3.1)'s class descendant and configure **DxGrid** at runtime in the following manner there:
+## Overview
+
+Create a [ComponentBase](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.components.componentbase?view=aspnetcore-3.1) class descendant that accepts a data source, grid columns, and grid settings stored in a dictionary. In the created class, configure the Grid component at runtime as follows:
 
 ```cs
 public class MyGrid<T> : ComponentBase
@@ -47,15 +40,15 @@ public class MyGrid<T> : ComponentBase
 }
 ```
 
-This way, your grid accepts three parameters: Data, ChildContent (**for columns**), and Settings. So now you can configure any grid with all the required settings by passing them as a parameter:
+Create a dictionary that stores setting names and values. Assign this dictionary to the corresponding component parameter to create and configure the Grid:
 
 ```razor
 <MyGrid Data="Forecasts" Settings="InputAttributes" >
 	<DxGridCommandColumn Width="150px" />
-	<DxGridDataColumn FieldName="@nameof(WeatherForecast.Date)"></DxGridDataColumn>
-	<DxGridDataColumn FieldName="@nameof(WeatherForecast.TemperatureC)"></DxGridDataColumn>
-	<DxGridDataColumn FieldName="@nameof(WeatherForecast.TemperatureF)"></DxGridDataColumn>
-	<DxGridDataColumn FieldName="@nameof(WeatherForecast.Summary)"></DxGridDataColumn>
+	<DxGridDataColumn FieldName="@nameof(WeatherForecast.Date)" />
+	<DxGridDataColumn FieldName="@nameof(WeatherForecast.TemperatureC)" />
+	<DxGridDataColumn FieldName="@nameof(WeatherForecast.TemperatureF)" />
+	<DxGridDataColumn FieldName="@nameof(WeatherForecast.Summary)" />
 </MyGrid>
 
 @code {
@@ -63,6 +56,7 @@ This way, your grid accepts three parameters: Data, ChildContent (**for columns*
 
     public Dictionary<string, object> InputAttributes { get; set; } =
         new Dictionary<string, object>() {
+            { "EditMode", GridEditMode.EditRow},
 			{ "PageSize", 5 },
 			{ "ShowFilterRow", false },
 			{ "PagerVisible" , false },
@@ -76,3 +70,15 @@ This way, your grid accepts three parameters: Data, ChildContent (**for columns*
 }
 ```
  
+## Files to Review
+
+- [MyGrid](./CS/DxBlazorApp/Components/MyGrid.cs)
+- [Index.razor](./CS/Pages/Index.razor)
+
+## Documentation
+
+* [Reuse and Customize Components](https://docs.devexpress.com/Blazor/401753/common-concepts/customize-and-reuse-components)
+
+## More Examples
+
+* [DevExpress Blazor Components - Set predefined settings for a specific component](https://github.com/DevExpress-Examples/blazor-default-settings)
