@@ -1,4 +1,5 @@
 ﻿@page "/"
+@using DevExpress.Blazor
 @namespace DxBlazorApp.Pages
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
@@ -14,7 +15,9 @@
     <base href="~/" />
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
     <link href="css/site.css" rel="stylesheet" />
-    <link href="_content/DevExpress.Blazor.Themes/bootstrap-external.bs5.min.css" rel="stylesheet" />
+    @foreach (var file in Themes.Fluent.GetFilePaths()) {
+        <link href="@file" rel="stylesheet" />
+    }
 </head>
 <body>
     <app>
