@@ -84,7 +84,7 @@ Create a dictionary that stores setting names and values. Assign this dictionary
 
 * [DevExpress Blazor Components - Set predefined settings for a specific component](https://github.com/DevExpress-Examples/blazor-default-settings)
 <!-- feedback -->
-## Does this example address your development requirements/objectives?
+## Does This Example Address Your Development Requirements/Objectives?
 
 [<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=blazor-grid-use-a-dictionary-to-configure-the-component&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=blazor-grid-use-a-dictionary-to-configure-the-component&~~~was_helpful=no)
 
